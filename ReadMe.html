@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Arma2NETMySQL Plugin: Arma 3 Example Mission</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+</head>
+<body>
+
+<center>
+<h1>Arma2NETMySQL Plugin: Arma 3 Example Mission - ReadMe</h1>
+<h3>Created by: <a href="http://forums.bistudio.com/member.php?2207-firefly2442">Firefly2442</a>, <a href="http://forums.bistudio.com/member.php?64032-Riouken">Riouken</a>, 
+and the fine folks at <a href="http://www.alphasquad.net">AlphaSquad</a></h3>
+</center>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#systemreqs">Requirements</a></li>
+<li><a href="#howto">Setup</a></li>
+<li><a href="#known_issues">Known Issues</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#thanks">Thanks To</a></li>
+</ul>
+
+
+<a name="intro"><h2>Introduction</h2></a>
+
+<p>Links:</p>
+<ul>
+	<li><a href="https://github.com/firefly2442/Arma2NETMySQLPlugin">Arma2NETMySQLPlugin</a></li>
+	<li><a href="https://github.com/firefly2442/Arma2NetMySQLPlugin-ExampleMission">Arma2NETMySQL Plugin Arma 2 Example Mission</a></li>
+	<li><a href="https://github.com/firefly2442/Arma2NetMySQLPlugin-Arma3-ExampleMission">Arma2NETMySQL Plugin Arma 3 Example Mission</a></li>
+</ul>
+
+<p>This is an example Arma3 mission for the <a href="https://github.com/firefly2442/Arma2NETMySQLPlugin">Arma2NETMySQLPlugin</a>.
+It allows you to gear up and save your entire loadout in a database.  Loadouts are specific to your player so you can
+have as many as you want.</p>
+
+<p>Are you looking for the example mission for Arma 2?  You can find it <a href="https://github.com/firefly2442/Arma2NetMySQLPlugin-ExampleMission">here</a></p>
+
+
+
+<a name="systemreqs"><h2>Requirements</h2></a>
+
+<ul>
+	<li>Arma2NETMySQLPlugin installed and working (see the readme for this program for requirements and setup instructions)</li>
+	<li>Arma3 Mods: CBA (required)</li>
+</ul>
+
+
+<a name="howto"><h2>Setup</h2></a>
+
+<ul>
+	<li>First read the instructions and setup Arma2NETMySQLPlugin.</li>
+	<li>Decide if you will be using MySQL or SQLite for your database.  If you don't know anything about databases, I would pick SQLite as it's easier to setup.</li>
+	<li>For SQLite:</li>
+	<ul>
+		<li>Go into /sql/sqlite/ and find "weaponsArma3.sqlite".  This is an empty copy of the SQLite database.</li>
+		<li>Copy that file to the SQLite folder for the Arma2NETMySQL plugin.  See the instructions for Arma2NETMySQL for details.</li>
+	</ul>
+	<li>For MySQL:</li>
+	<ul>
+		<li>Login to your MySQL server</li>
+		<li>Edit the /sql/mysql/weaponsArma3.sql file.  At the top, change the password from "123" to something more secure.</li>
+		<li>Import the /sql/mysql/weaponsArma3.sql file into your database.  This will setup the database structure.  You will probably need
+			to login as the root user to have the appropriate permissions to run the SQL file.  This will setup a user "arma" and a
+			database "weaponsArma3" as well as the appropriate permissions to lock down the "arma" user.  I would <b>not</b> recommend setting up
+			the Databases.txt file to use the root user.  This is a big security risk.</li>
+	</ul>
+	<li>Edit the Databases.txt file and provide the appropriate connection line to either SQLite or MySQL.</li>
+	<li>Rename this folder "Arma2NetMySQLPlugin-Arma3-example.Stratis" or use the provided PBO if you have a compiled version.</li>
+	<li>Copy this mission into your mission directory for Arma3.  It's probably something like:
+	<pre>C:\Username\My Documents\ArmA 3 Other Profiles\YourNameHere\mpmissions</pre>
+	or...
+	<pre>C:\Username\My Documents\ArmA 3\...</pre>
+	If you're running a dedicated server, put it in the MPMissions folder in your root Arma3 directory.</li>
+	<li>Then launch Arma3 with CBA and Arma2NET mods:
+	<pre>-mod=@CBA_A3;@Arma2NET</pre></li>
+	<li>The example mission is on the Stratis map.</li>
+	<li>Run the mission and walk up to the box in front of you.  Using the scrollwheel, select the
+	loadout system.  This opens up the dialog which you can then interact with.  You have the following
+	options.</li>
+	<ul>
+		<li>Create a new loadout.</li>
+			<ul><li>After providing a name in the textbox, the gear that you currently have will be saved to
+			the database.  Loadout names must be unique.</li></ul>
+		<li>Update an existing loadout.</li>
+			<ul><li>Select a loadout name from the list, then hit this button.  The selected loadout will be
+			replaced with the gear that you currently have selected.  Be careful, there's no way to undo this!</li></ul>
+		<li>Delete a loadout.</li>
+			<ul><li>Selecting a loadout name from the list and hitting this button will delete it.  Careful, there's no
+			undo!</li></ul>
+		<li>Select a loadout.</li>
+			<ul><li>Selecting a loadout name from the list and hitting this button will replace all gear that you have
+			with the selected loadout.</li></ul>
+	</ul>
+</ul>
+
+<a name="known_issues"><h2>Known Issues</h2></a>
+
+<p>The mission needs testing.</p>
+
+<a name="troubleshooting"><h2>Troubleshooting</h2></a>
+
+<p>See the Arma2NETMySQLPlugin readme for troubleshooting instructions related to the plugin.</p>
+
+<p>If you found a bug <b><u>in the mission</u></b>, please create an issue ticket here:
+<a href="https://github.com/firefly2442/Arma2NetMySQLPlugin-Arma3-ExampleMission">Github page</a>.</p>
+<p>There is also <a href="http://forums.bistudio.com/showthread.php?128795-Arma2MySQL">a thread</a>
+on the <a href="http://forums.bistudio.com">BIS forums</a> setup for theArma2NETMySQLPlugin so if you're stuck, you can ask there.
+The forums are preferred over emailing me because then the question/answer is available to
+future people who have similar problems.  If you post any questions anywhere, please post <b>ALL</b>
+log files, otherwise we will have problems helping you.</p>
+
+<a name="changelog"><h2>Changelog</h2></a>
+
+<ul>
+<li>Version 0.1
+	<ul>
+		<li>Testing...</li>
+	</ul>
+</li>
+</ul>
+
+<a name="license"><h2>License</h2></a>
+
+<p>This mission is licensed under the <a href="license.txt" target="_blank">GPL version 3</a>.</p>
+
+<a name="thanks"><h2>Thanks To</h2></a>
+
+<ul>
+<li>Thanks to Scott_NZ for <a href="https://dev-heaven.net/projects/a2n">Arma2NET</a></li>
+<li>Thank you to Hatchet, Robalo, Buehgler and all the guys over at <a href="http://www.alphasquad.net" target="_blank">AlphaSquad</a>.</li>
+<li>Thanks to JMan at <a href="http://www.kellys-heroes.eu">Kellys Heroes</a>.</li>
+<li>Thanks to all the testers.</li>
+<li>Thanks to Riouken for providing the excellent GUI system and overall awesomeness with scripting.</li>
+<li><a href="http://www.bistudio.com" target="_blank">Bohemia Interactive</a> for creating an awesome game and staying true to the community.</li>
+</ul>
+
+</body>
+</html>
