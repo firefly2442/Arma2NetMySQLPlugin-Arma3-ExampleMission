@@ -1,0 +1,20 @@
+CREATE TABLE "users" (
+						"id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE ,
+						"uid" VARCHAR NOT NULL ,
+						"name" VARCHAR NOT NULL ,
+						"ammo" VARCHAR ,
+						"weapons" VARCHAR ,
+						"items" VARCHAR ,
+						"assignitems" VARCHAR ,
+						"headgear" VARCHAR ,
+						"goggles" VARCHAR ,
+						"vest" VARCHAR ,
+						"vestitems" VARCHAR ,
+						"uniform" VARCHAR ,
+						"uniformitems" VARCHAR ,
+						"backpack" VARCHAR ,
+						"packitems" VARCHAR ,
+						"handgunitems" VARCHAR ,
+						"primarywep" VARCHAR ,
+						"secondarywep" VARCHAR
+					);
