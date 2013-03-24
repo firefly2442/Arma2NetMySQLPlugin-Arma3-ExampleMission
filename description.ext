@@ -1,0 +1,18 @@
+#include "as_loadouts\dialog\as_plo_ui_base.hpp"
+#include "as_loadouts\dialog\as_plo_gui.hpp"
+
+
+
+onLoadMission="Arma2NETMySQLPlugin Arma3 Example Mission";
+onLoadIntroTime = false;
+onLoadMissionTime = false;
+
+class Header
+{
+	gameType=Coop;
+	minPlayers=1;
+	maxPlayers=8;
+};
+
+disabledAI = 1;
+saving = 0;
