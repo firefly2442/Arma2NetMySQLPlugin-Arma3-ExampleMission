@@ -2,8 +2,8 @@
 #include "as_loadouts\dialog\as_plo_gui.hpp"
 
 //http://community.bistudio.com/wiki/Description.ext
-onLoadName = "Arma2NETMySQLPlugin"
-author = "Firefly2442"
+onLoadName = "Arma2NETMySQLPlugin";
+author = "Firefly2442";
 onLoadMission="Arma2NETMySQLPlugin Arma3 Example Mission";
 onLoadIntroTime = false;
 onLoadMissionTime = false;
