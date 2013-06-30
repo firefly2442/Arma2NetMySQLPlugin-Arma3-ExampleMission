@@ -11,6 +11,12 @@ if (isServer) then
 	//Here's some information on locality of variables in Arma
 	//http://forums.bistudio.com/showthread.php?124663-Locality-of-Variables-Between-Client-Server
 	
+	//http://community.bistudio.com/wiki/Variables
+	//Mutex variable that we will use to ensure the server can only be running one query at a time.
+	//This should be a Global variable and only have scope on the server.
+	serverRunningQuery = false;
+	TRACE_1("serverRunningQuery: ", serverRunningQuery);
+	
 	//TODO: check the return result for each callExtension to make sure the result was run successfully
 	//1) The data being sent was not too long
 	//2) An error wasn't returned
@@ -37,9 +43,19 @@ if (isServer) then
 			};
 		};
 		_query = _query + ")";
-
+		
 		TRACE_1("Query: ",_query);
-		_create = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['weaponsArma3', '%1']", _query];
+		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
+		};
+		_return = nil;
+		serverRunningQuery = true;
+		_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+		while {isNil("_return") && _return != ""} do {
+			_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+			TRACE_1("Returned Insert with: ",_return);
+		};
+		serverRunningQuery = false;
+		//we don't care about a return result
 	}
 	] call CBA_fnc_addEventHandler;
 
@@ -48,7 +64,17 @@ if (isServer) then
 		_name = _this select 1;
 		_query = format ["DELETE from users WHERE uid = '%1' AND name = '%2'", _puid, _name];
 		TRACE_1("Query: ",_query);
-		"Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['weaponsArma3', '%1']", _query];
+		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
+		};
+		_return = nil;
+		serverRunningQuery = true;
+		_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+		while {isNil("_return") && _return != ""} do {
+			_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+			TRACE_1("Returned Delete with: ",_return);
+		};
+		serverRunningQuery = false;
+		//we don't care about a return result
 	}
 	] call CBA_fnc_addEventHandler;
 
@@ -59,7 +85,17 @@ if (isServer) then
 		_owner = owner _unit;
 		_query = format ["SELECT name FROM users WHERE uid = '%1'", _parameters];
 		TRACE_1("Query: ",_query);
-		_dbloadouts = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['weaponsArma3', '%1']", _query];
+		_dbloadouts = nil;
+		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
+		};
+		serverRunningQuery = true;
+		_dbloadouts = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+		while {isNil("_dbloadouts") && _dbloadouts != ""} do {
+			_dbloadouts = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+			TRACE_1("Returned Select Names with: ",_dbloadouts);
+		};
+		serverRunningQuery = false;
+		
 		//return the result back to the specific user that called this event
 		//http://forums.bistudio.com/showthread.php?136494-ARMA-2-OA-beta-build-94209-%281-60-MP-compatible-build-post-1-60-release%29&p=2179795&viewfull=1#post2179795
 		ReturnedDatabaseLoadOutNames = _dbloadouts;
@@ -93,7 +129,17 @@ if (isServer) then
 		_query = _query + _check;
 
 		TRACE_1("Query: ",_query);
-		"Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['weaponsArma3', '%1']", _query];
+		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
+		};
+		_return = nil;
+		serverRunningQuery = true;
+		_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+		while {isNil("_return") && _return != ""} do {
+			_return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+			TRACE_1("Returned Update with: ",_return);
+		};
+		serverRunningQuery = false;
+		//we don't care about a return result
 	}
 	] call CBA_fnc_addEventHandler;
 
@@ -105,7 +151,17 @@ if (isServer) then
 		_owner = owner _unit;
 		_query = format ["SELECT uid, name, ammo, weapons, items, assignitems, headgear, goggles, vest, vestitems, uniform, uniformitems, backpack, packitems, handgunitems, primarywep, secondarywep FROM users WHERE uid = '%1' AND name = '%2'", _puid, _name];
 		TRACE_1("Query: ",_query);
-		_get = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['weaponsArma3', '%1']", _query];
+		_get = nil;
+		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
+		};
+		serverRunningQuery = true;
+		_get = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+		while {isNil("_get") && _get != ""} do {
+			_get = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
+			TRACE_1("Returned Select with: ",_get);
+		};
+		serverRunningQuery = false;
+		
 		//return the result back to the specific user that called this event
 		//http://forums.bistudio.com/showthread.php?136494-ARMA-2-OA-beta-build-94209-%281-60-MP-compatible-build-post-1-60-release%29&p=2179795&viewfull=1#post2179795
 		ReturnedDatabaseLoadOuts = _get;
