@@ -47,7 +47,6 @@ if (isServer) then
 		TRACE_1("Query: ",_query);
 		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
-		_return = nil;
 		serverRunningQuery = true;
 		_return = nil;
 		while {isNil("_return")} do {
@@ -70,7 +69,6 @@ if (isServer) then
 		TRACE_1("Query: ",_query);
 		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
-		_return = nil;
 		serverRunningQuery = true;
 		_return = nil;
 		while {isNil("_return")} do {
@@ -93,7 +91,6 @@ if (isServer) then
 		_owner = owner _unit;
 		_query = format ["SELECT name FROM users WHERE uid = '%1'", _parameters];
 		TRACE_1("Query: ",_query);
-		_dbloadouts = nil;
 		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
 		serverRunningQuery = true;
@@ -143,7 +140,6 @@ if (isServer) then
 		TRACE_1("Query: ",_query);
 		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
-		_return = nil;
 		serverRunningQuery = true;
 		_return = nil;
 		while {isNil("_return")} do {
@@ -167,7 +163,6 @@ if (isServer) then
 		_owner = owner _unit;
 		_query = format ["SELECT uid, name, ammo, weapons, items, assignitems, headgear, goggles, vest, vestitems, uniform, uniformitems, backpack, packitems, handgunitems, primarywep, secondarywep FROM users WHERE uid = '%1' AND name = '%2'", _puid, _name];
 		TRACE_1("Query: ",_query);
-		_get = nil;
 		while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
 		serverRunningQuery = true;
