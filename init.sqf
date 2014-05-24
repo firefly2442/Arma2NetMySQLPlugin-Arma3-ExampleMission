@@ -1,3 +1,10 @@
+//http://community.bistudio.com/wiki/isServer
+if (isServer) then
+{
+	//Load up Arma2NET during initialization for a slight performance bump
+	//https://github.com/ScottNZ/Arma2NET/wiki/Usage#performance
+	_ret = ("Arma2Net" callExtension "")
+};
 
 // This creates the ammo box and fills it.
 execVM "local_gear.sqf";
