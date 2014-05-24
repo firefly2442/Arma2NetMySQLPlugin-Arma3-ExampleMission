@@ -49,12 +49,9 @@ if (isServer) then
 		};
 		serverRunningQuery = true;
 		_return = "Arma2Net" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
-		while {isNil("_return")} do {
+		while {isNil("_return") || _return == ""} do {
 			_return = "Arma2Net" callExtension "Arma2NETMySQLCommandAsync getresult";
 			//TRACE_1("Returned Insert with: ",_return);
-			if (_return == "") then {
-				_return = nil;
-			};
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -71,12 +68,9 @@ if (isServer) then
 		};
 		serverRunningQuery = true;
 		_return = "Arma2Net" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
-		while {isNil("_return")} do {
+		while {isNil("_return") || _return == ""} do {
 			_return = "Arma2Net" callExtension "Arma2NETMySQLCommandAsync getresult";
 			//TRACE_1("Returned Delete with: ",_return);
-			if (_return == "") then {
-				_return = nil;
-			};
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -95,12 +89,9 @@ if (isServer) then
 		};
 		serverRunningQuery = true;
 		_dbloadouts = "Arma2Net" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
-		while {isNil("_dbloadouts")} do {
+		while {isNil("_dbloadouts") || _dbloadouts == ""} do {
 			_dbloadouts = "Arma2Net" callExtension "Arma2NETMySQLCommandAsync getresult";
 			//TRACE_1("Returned Select Names with: ",_dbloadouts);
-			if (_dbloadouts == "") then {
-				_dbloadouts = nil;
-			};
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -142,12 +133,9 @@ if (isServer) then
 		};
 		serverRunningQuery = true;
 		_return = "Arma2Net" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
-		while {isNil("_return")} do {
+		while {isNil("_return") || _return == ""} do {
 			_return = "Arma2Net" callExtension "Arma2NETMySQLCommandAsync getresult";
 			//TRACE_1("Returned Update with: ",_return);
-			if (_return == "") then {
-				_return = nil;
-			};
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -167,12 +155,9 @@ if (isServer) then
 		};
 		serverRunningQuery = true;
 		_get = "Arma2Net" callExtension format ["Arma2NETMySQLCommandAsync ['weaponsArma3', '%1']", _query];
-		while {isNil("_get")} do {
+		while {isNil("_get") || _get == ""} do {
 			_get = "Arma2Net" callExtension "Arma2NETMySQLCommandAsync getresult";
 			//TRACE_1("Returned Select with: ",_get);
-			if (_get == "") then {
-				_get = nil;
-			};
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
