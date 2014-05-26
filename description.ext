@@ -1,5 +1,5 @@
-#include "as_loadouts\dialog\as_plo_ui_base.hpp"
-#include "as_loadouts\dialog\as_plo_gui.hpp"
+#include "as_loadouts\dialog\as_plo_ui_base_A3.hpp"
+#include "as_loadouts\dialog\as_plo_gui_A3.hpp"
 
 //http://community.bistudio.com/wiki/Description.ext
 onLoadName = "Arma2NETMySQLPlugin";
