@@ -25,7 +25,7 @@ class AS_PLO_GUI {
 
 			class Background: AS_PLO_IGUIBack
 			{
-				idc = 2200;
+				idc = AS_LOADOUTS_BCKGRND;
 				x = 4.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 4 * GUI_GRID_H + GUI_GRID_Y;
 				w = 31 * GUI_GRID_W;
@@ -40,7 +40,7 @@ class AS_PLO_GUI {
 
 			class Texttitle: AS_PLO_RscText
 			{
-				idc = 1000;
+				idc = AS_LOADOUTS_TITLE;
 				text = "[AS] Loadout System"; //--- ToDo: Localize;
 				x = 5 * GUI_GRID_W + GUI_GRID_X;
 				y = 4 * GUI_GRID_H + GUI_GRID_Y;
@@ -49,7 +49,7 @@ class AS_PLO_GUI {
 			};
 			class LOlistbox: AS_PLO_RscListbox
 			{
-				idc = 1500;
+				idc = AS_LOADOUTS_dropDownMenu;
 				x = 5.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 6 * GUI_GRID_H + GUI_GRID_Y;
 				w = 16 * GUI_GRID_W;
@@ -58,7 +58,7 @@ class AS_PLO_GUI {
 			};
 			class Usebtn: AS_PLO_RscButton
 			{
-				idc = 1600;
+				idc = AS_LOADOUTS_useButton;
 				text = "Use Loadout"; //--- ToDo: Localize;
 				x = 24 * GUI_GRID_W + GUI_GRID_X;
 				y = 5.5 * GUI_GRID_H + GUI_GRID_Y;
@@ -69,7 +69,7 @@ class AS_PLO_GUI {
 			};
 			class Updatebtn: AS_PLO_RscButton
 			{
-				idc = 1601;
+				idc = AS_LOADOUTS_updateButton;
 				text = "Update Loadout"; //--- ToDo: Localize;
 				x = 24.01 * GUI_GRID_W + GUI_GRID_X;
 				y = 7.64 * GUI_GRID_H + GUI_GRID_Y;
@@ -80,7 +80,7 @@ class AS_PLO_GUI {
 			};
 			class Deletebtn: AS_PLO_RscButton
 			{
-				idc = 1602;
+				idc = AS_LOADOUTS_deleteButton;
 				text = "Delete Loadout"; //--- ToDo: Localize;
 				x = 24 * GUI_GRID_W + GUI_GRID_X;
 				y = 10 * GUI_GRID_H + GUI_GRID_Y;
@@ -91,7 +91,7 @@ class AS_PLO_GUI {
 			};
 			class Nameeditbox: AS_PLO_RscEdit
 			{
-				idc = 1400;
+				idc = AS_LOADOUTS_LoadoutName;
 				x = 24 * GUI_GRID_W + GUI_GRID_X;
 				y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
 				w = 10.5 * GUI_GRID_W;
@@ -100,7 +100,7 @@ class AS_PLO_GUI {
 			};
 			class Textname: AS_PLO_RscText
 			{
-				idc = 1001;
+				idc = AS_LOADOUTS_textName;
 				text = "Loadout Name"; //--- ToDo: Localize;
 				x = 26.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 12 * GUI_GRID_H + GUI_GRID_Y;
@@ -110,7 +110,7 @@ class AS_PLO_GUI {
 			};
 			class Createbtn: AS_PLO_RscButton
 			{
-				idc = 1603;
+				idc = AS_LOADOUTS_createButton;
 				text = "Create Loadout"; //--- ToDo: Localize;
 				x = 24 * GUI_GRID_W + GUI_GRID_X;
 				y = 16 * GUI_GRID_H + GUI_GRID_Y;
@@ -121,7 +121,7 @@ class AS_PLO_GUI {
 			};
 			class NameFrame: AS_PLO_RscFrame
 			{
-				idc = 1800;
+				idc = AS_LOADOUTS_nameFrame;
 				x = 23.5 * GUI_GRID_W + GUI_GRID_X;
 				y = 13.18 * GUI_GRID_H + GUI_GRID_Y;
 				w = 11.5317 * GUI_GRID_W;
@@ -129,7 +129,7 @@ class AS_PLO_GUI {
 			};
 			class closebtn: AS_PLO_RscButton
 			{
-				idc = 1604;
+				idc = AS_LOADOUTS_closeButton;
 				text = "Close"; //--- ToDo: Localize;
 				x = 24 * GUI_GRID_W + GUI_GRID_X;
 				y = 19 * GUI_GRID_H + GUI_GRID_Y;

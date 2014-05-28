@@ -1,6 +1,6 @@
 #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros.hpp"
-#include "definitions.sqf"
+#include "dialog\definitions.sqf"
 disableSerialization;
 
 //http://community.bistudio.com/wiki/isServer
