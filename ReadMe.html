@@ -67,10 +67,10 @@ have as many as you want.</p>
 		<li>Edit the /sql/mysql/weaponsArma3.sql file.  At the top, change the password from "123" to something more secure.</li>
 		<li>Import the /sql/mysql/weaponsArma3.sql file into your database.  This will setup the database structure.  You will probably need
 			to login as the root user to have the appropriate permissions to run the SQL file.  This will setup a user "arma" and a
-			database "weaponsArma3" as well as the appropriate permissions to lock down the "arma" user.  I would <b>not</b> recommend setting up
-			the Databases.txt file to use the root user.  This is a big security risk.</li>
+			database "weaponsArma3" as well as the appropriate permissions to lock down the "arma" user.  The plugin <b>will not</b> work with
+			the root user because of security concerns.</li>
 	</ul>
-	<li>Edit the Databases.txt file and provide the appropriate connection line to either SQLite or MySQL.</li>
+	<li>Edit the Databases.config file and provide the appropriate connection line to either SQLite or MySQL.</li>
 	<li>Rename this folder "Arma2NetMySQLPlugin-Arma3-example.Stratis" or use the provided PBO if you have a compiled version.</li>
 	<li>Copy this mission into your mission directory for Arma3.  It's probably something like:
 	<pre>C:\Username\My Documents\ArmA 3 Other Profiles\YourNameHere\mpmissions</pre>
@@ -118,9 +118,14 @@ log files, otherwise we will have problems helping you.</p>
 <a name="changelog"><h2>Changelog</h2></a>
 
 <ul>
-<li>Version 0.1
+<li>Version 0.2.0.0
 	<ul>
-		<li>Testing...</li>
+		<li>Uses new Arma2NET version.</li>
+	</ul>
+</li>
+<li>Version 0.1.0.0
+	<ul>
+		<li>Testing version.</li>
 	</ul>
 </li>
 </ul>
