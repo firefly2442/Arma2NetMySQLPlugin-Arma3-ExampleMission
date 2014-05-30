@@ -14,6 +14,8 @@ if ((lbSize _loadoutsDropDown) == 0) exitwith {hint "You must select a loadout!"
 
 _unit = player;
 _loadoutName = (_unit call FUNC(getLoadouts)) select (lbCurSel _loadoutsDropDown);
+//escape characters to minimize an SQL injection attack
+_loadoutName = [_loadoutName] call FUNC(sanitizeInput);
 
 ["as_update_loadout", [_allWeapons select 0, _loadoutName, _allWeapons select 1, _allWeapons select 2, _allWeapons select 3, 
 			_allWeapons select 4, _allWeapons select 5, _allWeapons select 6, _allWeapons select 7, _allWeapons select 8,

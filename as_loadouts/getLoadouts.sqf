@@ -12,6 +12,8 @@ if (isNull _unit || !isPlayer _unit) exitWith {
 };
 
 _parameters = getPlayerUID _unit;
+//escape characters to minimize an SQL injection attack
+_parameters = [_parameters] call FUNC(sanitizeInput);
 
 //TRACE_2("parameters variable: ",_parameters,_unit);
 

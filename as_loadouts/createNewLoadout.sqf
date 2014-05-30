@@ -8,6 +8,8 @@ _allWeapons = [] call FUNC(getAllWeapons);
 
 _dlg = findDisplay AS_LOADOUTS_DIALOG;
 _loadoutName = ctrlText (_dlg displayCtrl AS_LOADOUTS_LoadoutName);
+//escape characters to minimize an SQL injection attack
+_loadoutName = [_loadoutName] call FUNC(sanitizeInput);
 
 _unit = player;
 _loNames = (_unit call FUNC(getLoadouts));

@@ -13,6 +13,7 @@ if (isServer) then
 FUNC(getAllWeapons) = compile preprocessFileLineNumbers "as_loadouts\getAllWeapons.sqf";
 FUNC(getLoadouts) = compile preprocessFileLineNumbers "as_loadouts\getLoadouts.sqf";
 FUNC(formatArray) = compile preprocessFileLineNumbers "as_loadouts\formatArray.sqf";
+FUNC(sanitizeInput) = compile preprocessFileLineNumbers "as_loadouts\sanitizeInput.sqf";
 
 //UI Editor
 //https://community.bistudio.com/wiki/User_Interface_Editor_%28Arma_2%29

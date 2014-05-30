@@ -3,6 +3,8 @@
 
 // Identify Player
 _puid = getPlayerUID player;
+//escape characters to minimize an SQL injection attack
+_puid = [_puid] call FUNC(sanitizeInput);
 
 _ammo = (magazines player);
 _ammo = [_ammo] call FUNC(formatArray);
