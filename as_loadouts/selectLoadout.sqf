@@ -66,7 +66,7 @@ _handgunitems = [];
 _primarywep = [];
 _secondarywep = [];
 
-//https://dev-heaven.net/docs/cba/files/strings/fnc_find-sqf.html
+//https://dev.withsix.com/docs/cba/files/strings/fnc_find-sqf.html
 if ([(_get select 2), "`"] call CBA_fnc_find > 0) then {
 	_ammo = [(_get select 2), "`"] call CBA_fnc_split;
 } else {

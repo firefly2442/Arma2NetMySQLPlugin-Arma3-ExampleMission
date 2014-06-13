@@ -1,6 +1,6 @@
 // AS Loadouts - Initialize/Get Current Loadouts
 
-//http://dev-heaven.net/docs/cba/files/extended_eventhandlers/script_macros_common-hpp.html#DEBUG_MODE_FULL
+//http://dev.withsix.com/docs/cba/files/extended_eventhandlers/script_macros_common-hpp.html#DEBUG_MODE_FULL
 #define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros.hpp"
 

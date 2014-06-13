@@ -7,7 +7,7 @@ disableSerialization;
 if (isServer) then
 {
 	//Register all the CBA event handlers for the server to run in order to connect to the plugin
-	//https://dev-heaven.net/projects/cca/wiki/Custom_Events_System
+	//http://dev.withsix.com/projects/cca/wiki/Custom_Events_System
 	//Here's some information on locality of variables in Arma
 	//http://forums.bistudio.com/showthread.php?124663-Locality-of-Variables-Between-Client-Server
 	
